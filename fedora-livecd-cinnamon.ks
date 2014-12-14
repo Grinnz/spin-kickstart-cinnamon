@@ -4,7 +4,7 @@
 # - Fedora Live Spin with the Cinnamon Desktop Environment
 #
 # Maintainer(s):
-# - Daniel Book <grinnz@gmail.com>
+# - Dan Book <grinnz@grinnz.com>
 
 %include /usr/share/spin-kickstarts/fedora-live-base.ks
 %include /usr/share/spin-kickstarts/fedora-live-minimization.ks
@@ -33,9 +33,6 @@ sed -i 's/^#autologin-user-timeout=.*/autologin-user-timeout=0/' /etc/lightdm/li
 # set Cinnamon as default session, otherwise login will fail
 sed -i 's/^#user-session=.*/user-session=cinnamon/' /etc/lightdm/lightdm.conf
 
-# set Zukitwo as gtk-theme
-sudo -u liveuser HOME=/home/liveuser gsettings set org.cinnamon.desktop.interface gtk-theme 'Zukitwo'
-
 # Show harddisk install on the desktop
 sed -i -e 's/NoDisplay=true/NoDisplay=false/' /usr/share/applications/liveinst.desktop
 mkdir /home/liveuser/Desktop
@@ -47,6 +44,9 @@ chmod +x /home/liveuser/Desktop/liveinst.desktop
 # this goes at the end after all other changes. 
 chown -R liveuser:liveuser /home/liveuser
 restorecon -R /home/liveuser
+
+# set Zukitwo as gtk-theme
+sudo -Hu liveuser gsettings set org.cinnamon.desktop.interface gtk-theme 'Zukitwo'
 
 EOF
 
