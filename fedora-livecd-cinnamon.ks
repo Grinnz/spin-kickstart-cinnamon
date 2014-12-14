@@ -16,9 +16,6 @@ part / --size=4096
 %post
 # cinnamon configuration
 
-# This is a huge file and things work ok without it
-rm -f /usr/share/icons/HighContrast/icon-theme.cache
-
 # create /etc/sysconfig/desktop (needed for installation)
 
 cat > /etc/sysconfig/desktop <<EOF
@@ -29,26 +26,6 @@ EOF
 cat >> /etc/rc.d/init.d/livesys << EOF
 
 #mkdir -p /home/liveuser/.config/cinnamon-session
-
-#cat > /home/liveuser/.config/xfce4/helpers.rc << FOE
-#MailReader=sylpheed-claws
-#FileManager=Thunar
-#WebBrowser=midori
-#FOE
-
-# disable screensaver locking (#674410)
-#cat >> /home/liveuser/.xscreensaver << FOE
-#mode:           off
-#lock:           False
-#dpmsEnabled:    False
-#FOE
-
-# deactivate xfconf-migration (#683161)
-#rm -f /etc/xdg/autostart/xfconf-migration-4.6.desktop || :
-
-# deactivate xfce4-panel first-run dialog (#693569)
-#mkdir -p /home/liveuser/.config/xfce4/xfconf/xfce-perchannel-xml
-#cp /etc/xdg/xfce4/panel/default.xml /home/liveuser/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
 
 # set up lightdm autologin
 sed -i 's/^#autologin-user=.*/autologin-user=liveuser/' /etc/lightdm/lightdm.conf
