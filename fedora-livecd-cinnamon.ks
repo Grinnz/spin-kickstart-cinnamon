@@ -25,8 +25,6 @@ EOF
 
 cat >> /etc/rc.d/init.d/livesys << EOF
 
-#mkdir -p /home/liveuser/.config/cinnamon-session
-
 # set up lightdm autologin
 sed -i 's/^#autologin-user=.*/autologin-user=liveuser/' /etc/lightdm/lightdm.conf
 sed -i 's/^#autologin-user-timeout=.*/autologin-user-timeout=0/' /etc/lightdm/lightdm.conf
@@ -34,6 +32,9 @@ sed -i 's/^#autologin-user-timeout=.*/autologin-user-timeout=0/' /etc/lightdm/li
 
 # set Cinnamon as default session, otherwise login will fail
 sed -i 's/^#user-session=.*/user-session=cinnamon/' /etc/lightdm/lightdm.conf
+
+# set Zukitwo as gtk-theme
+sudo -u liveuser HOME=/home/liveuser gsettings set org.cinnamon.desktop.interface gtk-theme 'Zukitwo'
 
 # Show harddisk install on the desktop
 sed -i -e 's/NoDisplay=true/NoDisplay=false/' /usr/share/applications/liveinst.desktop
