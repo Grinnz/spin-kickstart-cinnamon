@@ -23,6 +23,15 @@ PREFERRED=/usr/bin/cinnamon-session
 DISPLAYMANAGER=/usr/sbin/lightdm
 EOF
 
+# create gschema override to set cinnamon gtk-theme
+
+cat > /usr/share/glib-2.0/schemas/cinnamon-live.gschema.override <<EOF
+[org.cinnamon.desktop.interface]
+gtk-theme='Zukitwo'
+EOF
+
+glib-compile-schemas /usr/share/glib-2.0/schemas/
+
 cat >> /etc/rc.d/init.d/livesys << EOF
 
 # set up lightdm autologin
@@ -44,9 +53,6 @@ chmod +x /home/liveuser/Desktop/liveinst.desktop
 # this goes at the end after all other changes. 
 chown -R liveuser:liveuser /home/liveuser
 restorecon -R /home/liveuser
-
-# set Zukitwo as gtk-theme
-sudo -Hu liveuser gsettings set org.cinnamon.desktop.interface gtk-theme 'Zukitwo'
 
 EOF
 
