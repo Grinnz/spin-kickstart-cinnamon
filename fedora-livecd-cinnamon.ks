@@ -10,6 +10,9 @@
 %include /usr/share/spin-kickstarts/fedora-live-minimization.ks
 %include fedora-cinnamon-packages.ks
 
+# DVD payload
+part / --size=4096
+
 %post
 # cinnamon configuration
 
