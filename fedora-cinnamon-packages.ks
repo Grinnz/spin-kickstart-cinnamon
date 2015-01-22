@@ -16,7 +16,7 @@
 gnome-keyring-pam
 
 # save some space
--desktop-backgrounds-basic
+-fedora-icon-theme
 -PackageKit*                # we switched to yumex, so we don't need this
 
 %end
