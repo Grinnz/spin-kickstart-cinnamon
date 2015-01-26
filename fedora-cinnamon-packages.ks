@@ -19,4 +19,9 @@ gnome-keyring-pam
 -fedora-icon-theme
 -PackageKit*                # we switched to yumex, so we don't need this
 
+# no bluetooth support
+-bluez
+-bluez-cups
+-NetworkManager-bluetooth
+
 %end
