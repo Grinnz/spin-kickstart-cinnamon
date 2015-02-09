@@ -23,15 +23,6 @@ PREFERRED=/usr/bin/cinnamon-session
 DISPLAYMANAGER=/usr/sbin/lightdm
 EOF
 
-# create gschema override to set cinnamon gtk-theme
-
-cat > /usr/share/glib-2.0/schemas/cinnamon-live.gschema.override <<EOF
-[org.cinnamon.desktop.interface]
-gtk-theme='Zukitwo'
-EOF
-
-glib-compile-schemas /usr/share/glib-2.0/schemas/
-
 # exclude GNOME-specific menu items
 desktop-file-edit --set-key=NoDisplay --set-value=true /usr/share/applications/fedora-release-notes.webapp.desktop
 desktop-file-edit --set-key=NoDisplay --set-value=true /usr/share/applications/yelp.desktop
