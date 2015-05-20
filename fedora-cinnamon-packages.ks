@@ -16,7 +16,6 @@
 pidgin
 hexchat
 transmission
-exaile
 totem
 
 # unlock default keyring. FIXME: Should probably be done in comps
