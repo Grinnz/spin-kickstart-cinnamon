@@ -12,6 +12,13 @@
 @cinnamon-desktop
 @libreoffice
 
+# internet and multimedia
+pidgin
+hexchat
+transmission
+exaile
+totem
+
 # unlock default keyring. FIXME: Should probably be done in comps
 gnome-keyring-pam
 
