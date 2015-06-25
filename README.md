@@ -3,6 +3,10 @@ spin-kickstart-cinnamon
 
 Custom Cinnamon LiveCD Spin for Fedora 22
 
+##Official Spin
+
+The Cinnamon Spin has been accepted for Fedora 23 and the kickstart files are now managed in the [spin-kickstarts](https://git.fedorahosted.org/cgit/spin-kickstarts.git/) repository.
+
 ##Spinning
 
 To create a respin, you must have `fedora-kickstarts` and `livecd-tools` installed.
